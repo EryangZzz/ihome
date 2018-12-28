@@ -38,7 +38,7 @@ $(document).ready(function(){
                     var order_str = '<li order-id="' + orders[i].order_id + '"><div class="order-title"><h3>订单编号：'
                         order_str += orders[i].order_id + '</h3><div class="fr order-operate">'
 
-                        if(orders[i].status == 'WAIT_COMMENT' || orders[i].status == 'COMPLETE'){
+                        if(orders[i].status == 'WAIT_COMMENT'){
                             order_str += '<button type="button" class="btn btn-success order-comment" data-toggle="modal" data-target="#comment-modal">发表评价</button>'
                         }else{
                             order_str += '<button type="button" style="display: none" class="btn btn-success order-comment" data-toggle="modal" data-target="#comment-modal">发表评价</button>'

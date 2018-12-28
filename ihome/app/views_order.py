@@ -96,11 +96,16 @@ def cancel():
     comment = request.form.get('comment')
     order_id = int(request.form.get('order_id'))
     order = Order.query.filter(Order.id == order_id).first()
-
-    order.status = 'CANCELED'
-    order.comment = comment
-    order.add_update()
-    return jsonify(status.SUCCESS)
+    if order.status == 'WAIT_ACCEPT':
+        order.status = 'CANCELED'
+        order.comment = comment
+        order.add_update()
+        return jsonify(status.SUCCESS)
+    else:
+        order.status = 'COMPLETE'
+        order.comment = comment
+        order.add_update()
+        return jsonify(status.SUCCESS)
 
 
 @blue_order.route('/lorders/', methods=['GET'])
@@ -265,3 +270,5 @@ def render_house():
         info = house.to_full_dict()
         house_l.append(info)
     return jsonify({'code': 200, 'house_info': house_l})
+
+
