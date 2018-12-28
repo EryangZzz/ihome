@@ -1,0 +1,27 @@
+1.安装git 并在github创建仓库ihome
+2.配置git
+  1.git bash: shh-keygen -t rsa -C"邮箱地址" 
+  2.让你输入保存秘钥地址，直接回车，默认应该在C
+  3.配置秘钥  在github上add ssh key 添加id_ras.pub秘钥内容
+  4.验证设置是否成功 git bash: ssh -T git@github.com
+	出现 hi github_name! You've......即成功
+  5.配置邮箱和用户名
+ 	git config -global user.name"用户名"
+	git config -global user.email"邮箱"
+3.托管代码
+  1.创建一个空文件夹git_ihome
+  2.初始化git本地仓库
+	在git_ihome文件夹右键git base here
+	输入: git init (多一个.git)
+  3.绑定仓库
+	git remote add origin 	git@github.com:git_name/repository_name.git
+  4.同步reponsitory的文件到本地
+	git pull git@github.com:git_name/repository_name.git
+  5.本地上传文件 - 将需要上传文件/文件夹放在ihome
+	添加本地文件到缓存区 - git add .
+	提交到本地仓库区 - git commit -m "提交消息"
+	上传 - git push git@github,com:git_name/repository_name.git
+	
+	
+	
+
